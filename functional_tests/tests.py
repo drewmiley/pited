@@ -10,6 +10,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
         for arg in sys.argv:
             if 'liveserver' in arg:
                 cls.server_url = 'http://' + arg.split('=')[1]
+                cls.live_server_url = ''
                 return
         super().setUpClass()
         cls.server_url = cls.live_server_url
@@ -63,7 +64,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
         inputbox.send_keys(Keys.ENTER)
 
         # The page updates again, and now shows both items on her list
-        time.sleep(0.2)
+        time.sleep(2.0)
         self.check_for_row_in_list_table('1 : Buy peacock feathers')
         self.check_for_row_in_list_table('2 : Use peacock feathers to make a fly')
 
@@ -83,7 +84,7 @@ class NewVisitorTest(StaticLiveServerTestCase):
         inputbox = self.browser.find_element_by_id('id_new_item')
         inputbox.send_keys('Buy milk')
         inputbox.send_keys(Keys.ENTER)
-        time.sleep(0.2)
+        time.sleep(2.0)
 
         # Francis gets his own unique URL
         francis_list_url = self.browser.current_url
