@@ -25,7 +25,10 @@ SECRET_KEY = '8bj#5_z2n1(x9y+&52czb(h3il^nm=c9i53s-mn@&#dt^r!w^w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'superlists-staging.drewmiley.life',
+    'superlists.drewmiley.life'
+]
 
 
 # Application definition
