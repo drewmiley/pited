@@ -1,0 +1,12 @@
+[Unit]
+Description=GunicornRunStarter
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/sites/superlists-staging.drewmiley.life/source
+ExecStart=/home/ubuntu/sites/superlists-staging.drewmiley.life/env/bin/gunicorn --bind unix:/tmp/superlists-staging.drewmiley.life.socket superlists.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+
